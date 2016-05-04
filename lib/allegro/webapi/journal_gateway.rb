@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Allegro
   module WebApi
     class JournalGateway
@@ -25,6 +26,15 @@ module Allegro
         }
         client.call(Call.new(:do_get_items_info, message: message))
           .body[:do_get_items_info_response][:array_item_list_info][:item]
+      end
+
+      def bids_for_item(item_id)
+        message = {
+          session_handle: client.session_handle,
+          item_id: item_id,
+        }
+        client.call(Call.new(:do_get_bid_item2, message: message))
+          .body[:do_get_bid_item2_response][:biditem_list]
       end
 
       private
