@@ -5,7 +5,7 @@ module Allegro
       attr_reader :client
 
       USER_METHODS = %w(id first_name last_name company birth_date email phone
-                        address city post_code).freeze
+                        address city postcode).freeze
       USER_COMPANY_METHODS = %w(regon nip).freeze
 
       def initialize(client)
@@ -24,7 +24,7 @@ module Allegro
       end
 
       # it creates methods: id first_name last_name company birth_date email
-      #                     phone address city id
+      #                     phone address city id postcode
       USER_METHODS.each do |method_name|
         define_method(method_name) do
           @my_data[:user_data]["user_#{method_name}".to_sym]
