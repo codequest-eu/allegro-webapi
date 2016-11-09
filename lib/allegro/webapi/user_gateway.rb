@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 module Allegro
   module WebApi
     class UserGateway
       attr_reader :client
 
       USER_METHODS = %w(id first_name last_name company birth_date email phone
-                        address city postcode).freeze
+                        address city postcode company_icon).freeze
       USER_COMPANY_METHODS = %w(regon nip type).freeze
 
       def initialize(client)
